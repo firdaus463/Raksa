@@ -1,0 +1,5 @@
+@layer components {
+    .auth-shell {
+        @apply min-h-screen bg-slate-50;
+    }
+}

@@ -1,0 +1,5 @@
+@layer components {
+    .surveyor-shell {
+        @apply min-h-screen bg-slate-50;
+    }
+}
