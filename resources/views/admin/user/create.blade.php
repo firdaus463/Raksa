@@ -171,11 +171,25 @@
                             </div>
                         </article>
 
+                        {{-- Form Action Buttons at the Bottom of Main Column --}}
+                        <div class="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs flex flex-col sm:flex-row items-center justify-end gap-3">
+                            <x-raksa.action.button variant="secondary" href="{{ route('user.index') }}" class="w-full sm:w-auto text-xs px-6">
+                                <span>Batal</span>
+                            </x-raksa.action.button>
+
+                            <x-raksa.action.button type="submit" variant="primary" class="w-full sm:w-auto text-xs px-8 !py-3 font-bold shadow-md">
+                                <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Simpan Akun Surveyor</span>
+                            </x-raksa.action.button>
+                        </div>
+
                     </div>
 
-                    {{-- Right Column: Summary & Actions Sidebar --}}
+                    {{-- Right Column: Information & Support Panel Only --}}
                     <div class="space-y-6 lg:col-span-4">
-                        <article class="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs space-y-6">
+                        <article class="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs space-y-4">
                             <div class="flex items-center gap-3.5 rounded-xl border border-raksa-primary/20 bg-raksa-primary/5 p-4">
                                 <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-raksa-primary text-white">
                                     <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -186,19 +200,6 @@
                                 <p class="text-xs text-raksa-primary-hover leading-relaxed">
                                     Akun baru yang dibuat akan langsung mendapatkan peran <strong class="font-bold">Surveyor Lapangan</strong> untuk melakukan sensus aset dan pengajuan verifikasi.
                                 </p>
-                            </div>
-
-                            <div class="space-y-3 pt-2">
-                                <x-raksa.action.button type="submit" variant="primary" class="w-full">
-                                    <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                    <span>Simpan Akun Surveyor</span>
-                                </x-raksa.action.button>
-
-                                <x-raksa.action.button variant="secondary" href="{{ route('user.index') }}" class="w-full">
-                                    <span>Batal</span>
-                                </x-raksa.action.button>
                             </div>
                         </article>
                     </div>

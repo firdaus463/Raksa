@@ -8,6 +8,10 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
+    $user = auth()->user();
+    if ($user && (str_contains($user->email, 'surveyor') || str_contains(strtolower($user->name), 'surveyor'))) {
+        return redirect()->route('surveyor.dashboard');
+    }
     return view('admin.dashboard.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -41,6 +45,15 @@ Route::middleware('auth')->group(function () {
 
     // Pengaturan
     Route::get('/admin/pengaturan', fn () => view('admin.pengaturan.index'))->name('pengaturan.index');
+
+    // Surveyor Routes
+    Route::get('/surveyor/dashboard', fn () => view('surveyor.dashboard.index'))->name('surveyor.dashboard');
+    Route::get('/surveyor/sensus', fn () => view('surveyor.sensus.index'))->name('surveyor.sensus.index');
+    Route::get('/surveyor/sensus/create', fn () => view('surveyor.sensus.create'))->name('surveyor.sensus.create');
+    Route::get('/surveyor/riwayat', fn () => view('surveyor.riwayat.index'))->name('surveyor.riwayat.index');
+    Route::get('/surveyor/riwayat/show', fn () => view('surveyor.riwayat.show'))->name('surveyor.riwayat.show');
+    Route::get('/surveyor/inbox', fn () => view('surveyor.inbox.index'))->name('surveyor.inbox.index');
+    Route::get('/surveyor/pengaturan', fn () => view('surveyor.pengaturan.index'))->name('surveyor.pengaturan.index');
 });
 
 require __DIR__.'/auth.php';
